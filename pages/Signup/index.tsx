@@ -1,7 +1,6 @@
 import React, { useCallback, useState, useContext } from 'react'
 import styled from 'styled-components';
 
-import { UserContext } from '../../App';
 import { StyledLogin, StyledWrapper, StyledLogoWrapper, StyledLogo, StyledName, StyledTitle, StyledFomr, StyledInputWrapper, StyledInput, StlyedButtonWrapper, StyledButton, StyledDescription, StyledLink, StyledDescriptionWrapper } from '../../common/StyledComponents';
 
 const StyledTextWrapper = styled(StyledInputWrapper)`
@@ -24,20 +23,18 @@ const StyledText = styled.div`
 `;
 
 const Signup: React.FC = ({ history }: any) => {
-  const { context: { userDispatch } }: any = useContext(UserContext);
   const [email, setEmail] = useState('');
   const [passoword, setPassword] = useState('');
   const onSubmit = useCallback(event => {
     event.preventDefault();
     event.stopPropagation();
     console.log(email, passoword)
-    userDispatch({
-      type: 'login',
-      payload: {
-        email,
-      }
-    })
-    history.push('/');
+    // userDispatch({
+    //   type: 'login',
+    //   payload: {
+    //     email,
+    //   }
+    // })
   }, [email, passoword]);
   const onChangeEmail = useCallback(event => {
     setEmail(event.target.value);

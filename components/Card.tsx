@@ -1,14 +1,14 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import deleteIcon from '../images/icon_delete.svg'
-import authorImage from '../images/icon_writer.svg'
-import dateIcon from '../images/icon_date.svg'
-import clockIcon from '../images/icon_clock.svg'
-import placeIcon from '../images/icon_place.svg'
-import editIcon from '../images/icon_edit.svg'
-import voteIcon from '../images/icon_vote.svg'
-import checkIcon from '../images/icon_check.svg'
+const deleteIcon = require('../static/images/icon_delete.svg')
+const authorImage = require('../static/images/icon_writer.svg')
+const dateIcon = require('../static/images/icon_date.svg')
+const clockIcon = require('../static/images/icon_clock.svg')
+const placeIcon = require('../static/images/icon_place.svg')
+const editIcon = require('../static/images/icon_edit.svg')
+const voteIcon = require('../static/images/icon_vote.svg')
+const checkIcon = require('../static/images/icon_check.svg')
 
 const StyledCardWrapper = styled.div<any>`
   display: inline-block;

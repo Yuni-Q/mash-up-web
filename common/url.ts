@@ -1,0 +1,1 @@
+export const userProfile = 'https://mashup.lhy.kr/api/members/auth-token/';

@@ -4,7 +4,7 @@ import { login } from './redirect';
 import { userProfile } from './url';
 import { deleteCookie } from './cookie';
 
-export default async ({ res, token }) => {
+export default async ({ res, token }: any) => {
   try {
     const result = await axios.get(userProfile, {
       headers: { Authorization: `Token ${token}` },

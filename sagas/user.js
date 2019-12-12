@@ -51,7 +51,6 @@ function editAPI({ pk, password, imgProfile, email, nickname, phoneNumber }) {
 function* edit(action) {
   try {
     const result = yield call(editAPI, action.data);
-    console.log(111,result)
     const { pk, phoneNumber, imgProfile, nickname, email } = result.data;
     yield put({
       type: EDIT_USER_SUCCESS,
@@ -79,7 +78,8 @@ function* watchEdit() {
 
 // LOG_IN
 function logInAPI({ email, password }) {
-  return axios.post('https://study-watson.lhy.kr/api/v1/auth/token/', {
+  console.log(email, 999)
+  return axios.post('https://mashup.lhy.kr/api/members/auth-token/', {
     username: email,
     email,
     password,
@@ -88,22 +88,19 @@ function logInAPI({ email, password }) {
 
 function* logIn(action) {
   try {
-    const result = yield call(logInAPI, action.data);
-    const { pk, username, email, phoneNumber, nickname } = result.data.user;
-    const { key } = result.data;
+    const { email,password } = action.payload;
+    console.log(action)
+    const result = yield call(logInAPI, {email, password});
+    const { user, key } = result.data;
     document.cookie = `token=${key}; path=/`;
-    document.cookie = `pk=${pk}; path=/`;
+    document.cookie = `pk=${user.pk}; path=/`;
     yield put({
       type: LOG_IN_SUCCESS,
       data: {
-        pk,
-        username,
-        email,
-        phoneNumber,
-        nickname,
+        user
       },
     });
-    Router.pushRoute('/');
+    Router.push('/');
   } catch (e) {
     console.error(e.response);
     alert('입력하신 아이디/비밀번호에 해당하는 계정이 없습니다.');

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+const {Link} = require('../routes');
 import styled from 'styled-components';
 
 const white = '#ffffff'

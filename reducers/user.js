@@ -2,10 +2,6 @@ export const initialState = {
   isLogin: false,
   pk: '',
   username: '',
-  email: '',
-  phoneNumber: '',
-  imgProfile: '',
-  nickname: '',
 };
 
 // export const USER_ATTRIBUTE_CHECK_REQUEST = 'USER_ATTRIBUTE_CHECK_REQUEST';
@@ -64,11 +60,7 @@ export default (state = initialState, action) => {
     case LOG_IN_SUCCESS:
       return {
         ...state,
-        pk: action.data.pk,
-        username: action.data.username,
-        email: action.data.email,
-        phoneNumber: action.data.phoneNumber,
-        nickname: action.data.nickname,
+        ...action.data.user,
         isLogin: true,
       };
     case LOG_IN_FAILURE:

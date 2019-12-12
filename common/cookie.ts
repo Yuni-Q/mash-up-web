@@ -1,6 +1,6 @@
 import { canUseDOM } from './canUesDOM';
 
-export const getCookie = value => {
+export const getCookie = (value: string) => {
   if (canUseDOM()) {
     const decodedCookie = decodeURIComponent(document.cookie);
     const cookieList = decodedCookie.split(';');
@@ -14,7 +14,7 @@ export const getCookie = value => {
   return null;
 };
 
-export const getCookieServer = ({ value, context }) => {
+export const getCookieServer = ({ value, context }: any) => {
   const decodedCookie = decodeURIComponent(context.ctx.req.headers.cookie);
   const cookieList = decodedCookie.split(';');
   const name = `${value}=`;
@@ -23,13 +23,13 @@ export const getCookieServer = ({ value, context }) => {
   return cookie ? cookie.substring(name.length) : '';
 };
 
-export const deleteCookie = cookieName => {
+export const deleteCookie = (cookieName: string) => {
   if (canUseDOM()) {
     const expireDate = new Date();
 
     // 어제 날짜를 쿠키 소멸 날짜로 설정한다.
     expireDate.setDate(expireDate.getDate() - 1);
-    document.cookie = `${cookieName}=; expires=${expireDate.toGMTString()}; path=/`;
+    document.cookie = `${cookieName}=; expires=${expireDate.toUTCString()}; path=/`;
   }
 };
 

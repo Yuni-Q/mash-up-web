@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom';
+const { Link } = require('../../routes');
 
 import Card from '../../components/Card';
 import { StyledSubHead, StyledH1, StyledH1B, StyledNav, StyledHeadLogoWrapper, StyledHeadLogo, StyledHeadName, StlyedLink, StyledUserInfo, StyledH2, StyledNavText, StyledHead } from '../../common/StyledComponents';
@@ -34,30 +34,34 @@ const StyledMoreButton = styled.button`
 `;
 
 
-interface Props {
-
-}
-
-const Main: React.FC<Props> = () => {
+const Main: any = () => {
   return (
     <StyledMain>
-      <Link to="/add/schedule">
+      <Link to="/schedule">
         <StyledPostButton>5</StyledPostButton>
       </Link>
       <StyledHead>
         <StyledNav>
-          <StyledHeadLogoWrapper>
-            <StyledHeadLogo />
-            <StyledHeadName>MASH UP</StyledHeadName>
-          </StyledHeadLogoWrapper>
+          <Link to='/'>
+            <StyledHeadLogoWrapper>
+              <StyledHeadLogo />
+              <StyledHeadName>MASH UP</StyledHeadName>
+            </StyledHeadLogoWrapper>
+          </Link>
           <StlyedLink to="/">
-            <StyledNavText white={true}>전체회의 공지</StyledNavText>
+            <a>
+              <StyledNavText white={true}>전체회의 공지</StyledNavText>
+            </a>
           </StlyedLink>
           <StlyedLink to="/">
-            <StyledNavText>팀별 스터디 공지</StyledNavText>
+            <a>
+              <StyledNavText>팀별 스터디 공지</StyledNavText>
+            </a>
           </StlyedLink>
           <StlyedLink to="/">
-            <StyledNavText>앱프로젝트 공지</StyledNavText>
+            <a>
+              <StyledNavText>앱프로젝트 공지</StyledNavText>
+            </a>
           </StlyedLink>
         </StyledNav>
         <Link to="/">
@@ -80,6 +84,14 @@ const Main: React.FC<Props> = () => {
     </StyledMain>
   )
 }
+
+// Main.getInitialProps = async ({ res, token }: any) => {
+//   // const user = await checkLogin({ res, token });
+
+//   return {
+//     // user,
+//   }
+// };
 
 export default Main
 

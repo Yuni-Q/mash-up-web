@@ -1,10 +1,8 @@
-import React, { useCallback, useState, useContext } from 'react'
+import React, { useCallback, useState } from 'react'
 
-import { UserContext } from '../../App';
 import { StyledLogin, StyledWrapper, StyledLogoWrapper, StyledLogo, StyledName, StyledTitle, StyledFomr, StyledInputWrapper, StyledInput, StlyedButtonWrapper, StyledButton, StyledDescription, StyledLink, StyledDescriptionWrapper } from '../../common/StyledComponents';
 
-const Authentication: React.FC = ({ history }: any) => {
-  const { context: { userDispatch } }: any = useContext(UserContext);
+const Authentication: React.FC = () => {
   const [number, setNumber] = useState('');
   const onSubmit = useCallback(event => {
     event.preventDefault();
@@ -15,7 +13,6 @@ const Authentication: React.FC = ({ history }: any) => {
     //     email,
     //   }
     // })
-    history.push('/signup');
   }, [number]);
   const onChangeNumber = useCallback(event => {
     setNumber(event.target.value);

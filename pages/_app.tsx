@@ -99,11 +99,11 @@ MyApp.getInitialProps = async context => {
     token = getCookie('token') || '';
     pk = getCookie('pk') || '';
   }
+
   axios.defaults.headers.Authorization = `Bearer ${token}`;
   let pageProps: any = {};
   if (context.Component.getInitialProps) {
     const { ctx } = context;
-    // @ts-ignore
     const obj : any  = {
       ctx,
       token,

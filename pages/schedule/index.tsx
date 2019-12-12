@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 
-import { StyledHead, StyledNav, StyledHeadLogoWrapper, StyledHeadLogo, StyledHeadName, StlyedLink, StyledNavText, StyledUserInfo, StyledSubHead, StyledH1, StyledH1B, StyledH2 } from '../../common/StyledComponents'
+import { StyledHead, StyledNav, StyledHeadLogoWrapper, StyledHeadLogo, StyledHeadName, StyledUserInfo, StyledSubHead, StyledH1, StyledH2 } from '../../common/StyledComponents'
 import Card from '../../components/Card'
+
+const { Link } = require('../../routes')
 
 const StyledCardWrapper = styled.div`
   display: flex;
@@ -16,12 +17,14 @@ const AddSchedule = () => {
     <div>
       <StyledHead>
         <StyledNav>
-          <StyledHeadLogoWrapper>
-            <StyledHeadLogo />
-            <StyledHeadName>MASH UP</StyledHeadName>
-          </StyledHeadLogoWrapper>
+          <Link to='/'>
+            <StyledHeadLogoWrapper>
+              <StyledHeadLogo />
+              <StyledHeadName>MASH UP</StyledHeadName>
+            </StyledHeadLogoWrapper>
+          </Link>
         </StyledNav>
-        <Link to="/">
+        <Link href="/">
           <StyledUserInfo>
             디자인 고은이
           </StyledUserInfo>

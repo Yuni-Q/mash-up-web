@@ -1,1 +1,0 @@
-export const userProfile = 'https://study-watson.lhy.kr/api/v1/members/profile/';
