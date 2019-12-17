@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { NextPage } from 'next';
+
 const { Link } = require('../../routes');
 
 import Card from '../../components/Card';
@@ -34,8 +36,11 @@ const StyledMoreButton = styled.button`
   border: solid 1.5px #616a76;
 `;
 
+interface Props {
+  user: any;
+}
 
-const Main: any = () => {
+const Main: NextPage<Props>  = ({user}) => {
   return (
     <StyledMain>
       <Link to="/schedule">
@@ -67,7 +72,7 @@ const Main: any = () => {
         </StyledNav>
         <Link to="/">
           <StyledUserInfo>
-            디자인 고은이
+            {`${user.userPeriodTeamSet[0].team.name} ${user.name}`}
           </StyledUserInfo>
         </Link>
       </StyledHead>
