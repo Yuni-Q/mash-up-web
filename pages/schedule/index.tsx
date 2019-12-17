@@ -36,7 +36,7 @@ const AddSchedule = () => {
       </StyledSubHead>
       <StyledCardWrapper>
         <Card isNew={true} />
-      </StyledCardWrapper>>
+      </StyledCardWrapper>
     </div>
   )
 }

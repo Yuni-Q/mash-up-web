@@ -4,6 +4,7 @@ const { Link } = require('../../routes');
 
 import Card from '../../components/Card';
 import { StyledSubHead, StyledH1, StyledH1B, StyledNav, StyledHeadLogoWrapper, StyledHeadLogo, StyledHeadName, StlyedLink, StyledUserInfo, StyledH2, StyledNavText, StyledHead } from '../../common/StyledComponents';
+import checkLogin from '../../common/checkLogin';
 
 const StyledMain = styled.div``;
 
@@ -85,13 +86,12 @@ const Main: any = () => {
   )
 }
 
-// Main.getInitialProps = async ({ res, token }: any) => {
-//   // const user = await checkLogin({ res, token });
-
-//   return {
-//     // user,
-//   }
-// };
+Main.getInitialProps = async ({ res, token }: any) => {
+  const user = await checkLogin({ res, token });
+  return {
+    user,
+  }
+};
 
 export default Main
 

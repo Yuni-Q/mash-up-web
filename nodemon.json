@@ -4,5 +4,5 @@
     "nodemon.json"
   ],
   "exec": "node server.js",
-  "ext": "js json jsx"
+  "ext": "js json jsx ts tsx"
 }

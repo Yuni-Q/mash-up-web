@@ -88,9 +88,9 @@ function logInAPI({ email, password }) {
 
 function* logIn(action) {
   try {
-    const { email,password } = action.payload;
+    const { email, password } = action.payload;
     console.log(action)
-    const result = yield call(logInAPI, {email, password});
+    const result = yield call(logInAPI, { email, password });
     const { user, key } = result.data;
     document.cookie = `token=${key}; path=/`;
     document.cookie = `pk=${user.pk}; path=/`;
