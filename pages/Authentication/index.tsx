@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from './node_modules/react';
+import React, { useCallback, useState } from 'react';
 
 import {
 	StyledLogin,
