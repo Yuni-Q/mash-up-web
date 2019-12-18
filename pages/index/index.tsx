@@ -64,16 +64,16 @@ const Main: NextPage<Props> = ({ user, firstNoticesSet, token }) => {
 		if (notices.next !== null)
 			try {
 				const { data } = await apis.fetchNotices(page + 1, token);
+				console.log(1111, data.results);
 				setNotices((prevNotices: any) => {
 					return {
 						...data,
-						results: {
-							...prevNotices.results,
-							...data.results,
-						},
+						results: [...prevNotices.results, ...data.results],
 					};
 				});
-				setPage(2);
+				setPage(page => {
+					return page + 1;
+				});
 			} catch (error) {
 				console.log(error);
 				alert(error);

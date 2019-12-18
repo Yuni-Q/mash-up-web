@@ -255,6 +255,8 @@ const Card: React.FC<Props> = ({ isNew, notice, onClose }) => {
 		address1,
 		address2,
 		description,
+		// attendanceCount,
+		attendanceVotedCount,
 	} = notice;
 	return (
 		<StyledCardWrapper isNew={isNew}>
@@ -305,12 +307,12 @@ const Card: React.FC<Props> = ({ isNew, notice, onClose }) => {
 						<StyledFixBoxWrapper>
 							<StyledFixBox>
 								<StyledFixBoxImage src={editIcon.default} alt="" />
-								<StyledFixBoxText>투표 | 00명 참여 중</StyledFixBoxText>
+								<StyledFixBoxText>내용 | 편집하기</StyledFixBoxText>
 								<StyledFixBoxText>></StyledFixBoxText>
 							</StyledFixBox>
 							<StyledFixBox>
 								<StyledFixBoxImage src={voteIcon.default} alt="" />
-								<StyledFixBoxText>투표 | 00명 참여 중</StyledFixBoxText>
+								<StyledFixBoxText>{`투표 | ${attendanceVotedCount}명 참여 중`}</StyledFixBoxText>
 								<StyledFixBoxText>></StyledFixBoxText>
 							</StyledFixBox>
 						</StyledFixBoxWrapper>
