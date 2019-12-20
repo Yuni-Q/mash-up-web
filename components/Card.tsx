@@ -244,10 +244,11 @@ const StyledTextarea = styled.textarea`
 interface Props {
 	isNew?: boolean;
 	notice: any;
+	user: any;
 	onClose: any;
 }
 
-const Card: React.FC<Props> = ({ isNew, notice, onClose }) => {
+const Card: React.FC<Props> = ({ isNew, notice, onClose, user }) => {
 	const {
 		author: { name },
 		startAt,
@@ -262,7 +263,9 @@ const Card: React.FC<Props> = ({ isNew, notice, onClose }) => {
 		<StyledCardWrapper isNew={isNew}>
 			<StyledCardHead>
 				<StyledCategory>MASH-UP</StyledCategory>
-				<StyledDeleteImage src={deleteIcon.default} onClick={onClose} alt="" />
+				{(notice.author.pk === user.pk || isNew) && (
+					<StyledDeleteImage src={deleteIcon.default} onClick={onClose} alt="" />
+				)}
 			</StyledCardHead>
 			<StyledCardBody>
 				<StyledCatdTitle>전체회의 공지</StyledCatdTitle>

@@ -66,7 +66,7 @@ const AddSchedule: NextPage<Props> = ({ user }) => {
 				<StyledH2>매쉬업 전체회의/팀스터디/앱프로젝트 중 1가지를 골라 작성해주세요.</StyledH2>
 			</StyledSubHead>
 			<StyledCardWrapper>
-				<Card isNew={true} notice={notice} onClose={onClose} />
+				<Card isNew={true} notice={notice} onClose={onClose} user={user} />
 			</StyledCardWrapper>
 		</div>
 	);
